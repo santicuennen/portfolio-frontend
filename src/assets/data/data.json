@@ -1,0 +1,105 @@
+{
+  "argentinaprograma": {
+    "img": "https://argentinaprograma.inti.gob.ar/pluginfile.php/1/theme_moove/logo/1645588080/APLogo-20-20.png",
+    "url": "https://www.argentina.gob.ar/produccion/transformacion-digital-y-economia-del-conocimiento/argentina-programa"
+  },
+  "name": "Santiago Cuenca",
+  "profileimg": "https://i.ibb.co/zP90VzT/IMG-20220209-141013.jpg",
+  "banner": "https://i.blogs.es/b7c33c/black-and-white-code-programming-tech-79290/1366_2000.jpeg",
+  "profession": "FullStack Developer Jr.",
+  "location": "Buenos Aires",
+  "country": "Argentina",
+  "about": "Estudiante Fullstack Web, pero además músico y compostior. Abriendo campos en el mundo creativo",
+  "education": [
+    {
+      "title": "Bachiller modalidad Comunicación, Arte y Diseño",
+      "institution": "Colegio Elvira Sullivan",
+      "graduated": "2010"
+    },
+    {
+      "title": "Licenciatura en música",
+      "institution": "Universidad Nacional de Tres de Febrero",
+      "graduated": "2021"
+    },
+    {
+      "title": "FullStack Developer Jr.",
+      "institution": "Argentina Programa",
+      "graduated": "2021"
+    },
+    {
+      "title": "Javascript (Start Coding)",
+      "institution": "Laboratorio De Innovación e inteligencia Artifical de la Universidad de Buenos Aires",
+      "graduated": "2021"
+    },
+    {
+      "title": "React (Básico y Avanzado)",
+      "institution": "Laboratorio De Innovación e inteligencia Artifical de la Universidad de Buenos Aires",
+      "graduated": "2021"
+    },
+    {
+      "title": "Node.js (Start Coding)",
+      "institution": "Laboratorio De Innovación e inteligencia Artifical de la Universidad de Buenos Aires",
+      "graduated": "2021"
+    }
+  ],
+  "skills": [
+    {
+      "skill": "Angular",
+      "logo": "https://i.ibb.co/FDqrQ5g/angular.png",
+      "level": {
+        "num": "50",
+        "percentage": "50%"
+      }
+    },
+    {
+      "skill": "CSS",
+      "logo": "https://i.ibb.co/sPMVmK4/css.png",
+      "level": {
+        "num": "60",
+        "percentage": "60%"
+      }
+    },
+
+    {
+      "skill": "HTML",
+      "logo": "https://i.ibb.co/dPkgPmB/html.png",
+      "level": {
+        "num": "75",
+        "percentage": "75%"
+      }
+    },
+    {
+      "skill": "JavaScript",
+      "logo": "https://i.ibb.co/12bJg6L/javascript.png",
+      "level": {
+        "num": "75",
+        "percentage": "75%"
+      }
+    },
+    {
+      "skill": "React",
+      "logo": "https://i.ibb.co/FYtBkNw/react.png",
+      "level": {
+        "num": "40",
+        "percentage": "40%"
+      }
+    },
+    {
+      "skill": "Java",
+      "logo": "https://i.ibb.co/Hz0SLyk/java.png",
+      "level": {
+        "num": "20",
+        "percentage": "20%"
+      }
+    }
+  ],
+  "proyects": [
+    {
+      "type": "Music Proyect",
+      "title": "Music Album, 'Alazar'",
+      "description": "An old album containing some experimental and long songs, music from my beginnings as a composer",
+      "year": "2013",
+      "url": "https://sicuennen.bandcamp.com/"
+    }
+  ]
+}

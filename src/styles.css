@@ -1,1 +1,94 @@
-/* You can add global styles to this file, and also import other style files */
+.body {
+  background-color: #000000;
+}
+.container-fluid {
+  margin: 0.1em;
+  width: 100%;
+  border: 0.1em solid #efe1bd;
+  border-radius: 20px;
+  transition: all 0.2s;
+}
+.container-fluid:hover {
+  border: 0.1em solid #ddddda;
+}
+.img {
+  width: 60px;
+}
+
+.img-fluid {
+  width: 100%;
+  object-fit: cover;
+  height: 70vh;
+}
+.hashtagtext {
+  position: relative;
+  top: 5px;
+  left: 10px;
+  color: #efe1bd;
+}
+.profile-container {
+  display: flex;
+  position: relative;
+  bottom: 30px;
+}
+#profileimg {
+  border-radius: 100px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 0.1em solid #efe1bd;
+}
+
+.data {
+  font-family: "Ubuntu Mono", monospace;
+  position: relative;
+  margin: 8px 15px 10px;
+  display: block;
+}
+.edit-ico {
+  fill: #efe1bd;
+  transition: all 0.2s;
+}
+#edit-ico {
+  display: inline;
+  position: absolute;
+  top: 180px;
+  left: 180px;
+}
+.edit-ico:hover {
+  fill: #c5a34e;
+}
+#name {
+  top: 20px;
+  color: #efe1bd;
+}
+.title {
+  font-size: 50px;
+  color: #efe1bd;
+  padding-bottom: 10px;
+}
+
+.card-style {
+  background-color: #000000;
+  color: white;
+  border: 0.1em solid #efe1bd;
+}
+
+.logo {
+  position: relative;
+  width: 5em;
+  right: 5.5em;
+  top: 2.5em;
+}
+.bar {
+  position: relative;
+  padding-bottom: 30px;
+  bottom: 2.5em;
+}
+.progress-bar {
+  background-color: #c5a34e;
+}
+.percentage {
+  color: #efe1bd;
+}
