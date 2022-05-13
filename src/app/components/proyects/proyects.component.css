@@ -1,0 +1,11 @@
+h5,
+.description {
+  color: #848484;
+}
+.year {
+  color: #daa140;
+}
+#seemore {
+  background-color: #daa140;
+  border: 1px solid #848484;
+}

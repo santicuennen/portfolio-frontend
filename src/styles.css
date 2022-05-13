@@ -1,15 +1,19 @@
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+body {
+  background-color: #080f15;
+}
 .body {
-  background-color: #000000;
+  background-color: #080f15;
 }
 .container-fluid {
-  margin: 0.1em;
   width: 100%;
-  border: 0.1em solid #efe1bd;
+  height: 100%;
+  border: 0.1em solid #cd922d;
   border-radius: 20px;
   transition: all 0.2s;
 }
 .container-fluid:hover {
-  border: 0.1em solid #ddddda;
+  border: 0.1em solid #f7e11a;
 }
 .img {
   width: 60px;
@@ -17,15 +21,10 @@
 
 .img-fluid {
   width: 100%;
+  height: 60vh;
   object-fit: cover;
-  height: 70vh;
 }
-.hashtagtext {
-  position: relative;
-  top: 5px;
-  left: 10px;
-  color: #efe1bd;
-}
+
 .profile-container {
   display: flex;
   position: relative;
@@ -37,7 +36,11 @@
   height: 200px;
   object-fit: cover;
   margin-bottom: 20px;
-  border: 0.1em solid #efe1bd;
+  border: 0.1em solid #daa140;
+  transition: border 0.2s;
+}
+#profileimg:hover {
+  border: 0.1em solid #73787d;
 }
 
 .data {
@@ -47,48 +50,77 @@
   display: block;
 }
 .edit-ico {
-  fill: #efe1bd;
+  float: right;
+  position: relative;
+  top: 1em;
+  right: 1em;
+  color: #848484;
+  font-size: 25px;
   transition: all 0.2s;
+  z-index: 100;
 }
-#edit-ico {
-  display: inline;
-  position: absolute;
-  top: 180px;
-  left: 180px;
-}
+
 .edit-ico:hover {
-  fill: #c5a34e;
+  color: #bdbdbd;
 }
 #name {
   top: 20px;
-  color: #efe1bd;
+  color: #bdbdbd;
 }
 .title {
   font-size: 50px;
-  color: #efe1bd;
+  color: #bdbdbd;
   padding-bottom: 10px;
 }
 
 .card-style {
   background-color: #000000;
-  color: white;
-  border: 0.1em solid #efe1bd;
+  color: #848484;
+  border: 0.1em solid #bdbdbd;
 }
 
 .logo {
+  object-fit: contain;
+  width: 4em;
+  height: 4em;
   position: relative;
   width: 5em;
   right: 5.5em;
   top: 2.5em;
 }
-.bar {
+.icon-custom-add {
   position: relative;
-  padding-bottom: 30px;
-  bottom: 2.5em;
+  bottom: 1.85em;
+  margin-left: 7em;
+  color: #daa140;
+  transition: color 0.3s;
 }
-.progress-bar {
-  background-color: #c5a34e;
+.icon-custom-add:hover {
+  color: #946c41;
 }
-.percentage {
-  color: #efe1bd;
+
+#year {
+  color: #daa140;
+}
+.delete_btn {
+  padding: 5px;
+  font-size: 20px;
+  float: right;
+  color: #848484;
+  transition: all 0.2s;
+  z-index: 100;
+}
+.edit_btn {
+  padding: 5px;
+  font-size: 20px;
+  float: right;
+  color: #848484;
+  transition: all 0.2s;
+  z-index: 100;
+}
+
+.delete_btn:hover,
+.edit_btn:hover {
+  color: #bdbdbd;
+  cursor: pointer;
 }

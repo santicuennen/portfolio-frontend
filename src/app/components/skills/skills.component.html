@@ -1,31 +1,32 @@
 <div class="container-fluid">
   <div class="container">
-    <h2 class="data title">
-      Hard & Soft Skills
-      <a class="edit-ico" href="">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="17"
-          height="17"
-          class="bi bi-pen-fill"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"
-          />
-        </svg>
+    <h2 class="data title">Hard & Soft Skills</h2>
+    <h1>
+      <a href="">
+        <i
+          class="bi bi-file-plus-fill icon-custom-add"
+          id="icon-custom-add"
+        ></i>
       </a>
-    </h2>
+    </h1>
   </div>
   <div class="container" *ngFor="let skill of mySkills">
     <div class="bar">
-      <img class="logo" [src]="skill.logo" alt="" />
+      <div>
+        <a (click)="onDelete(skill)"
+          ><i class="bi bi-trash3 delete_btn"> </i
+        ></a>
+        <a class="edit_btn" href="">
+          <i class="bi bi-pencil-fill"></i>
+        </a>
+      </div>
+      <img class="logo" [src]="skill.urlImg" alt="logo" />
       <div class="progress">
         <div
           class="progress-bar progress-bar-striped"
           role="progressbar"
-          [attr.aria-valuenow]="skill.level.num"
-          [ngStyle]="{ width: skill.level.percentage }"
+          [attr.aria-valuenow]="skill.num"
+          [ngStyle]="{ width: skill.percentage }"
           aria-valuemin="0"
           aria-valuemax="100"
         ></div>

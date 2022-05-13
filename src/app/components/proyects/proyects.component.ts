@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PortfolioService } from 'src/app/services/portfolio.service';
+import { Proyects } from 'src/app/models/Proyects';
+import { ProyectsService } from 'src/app/services/proyects.service';
 
 @Component({
   selector: 'app-proyects',
@@ -7,11 +8,18 @@ import { PortfolioService } from 'src/app/services/portfolio.service';
   styleUrls: ['./proyects.component.css'],
 })
 export class ProyectsComponent implements OnInit {
-  constructor(private datosPortfolio: PortfolioService) {}
+  constructor(private datosPortfolio: ProyectsService) {}
   proyectsList: any;
   ngOnInit(): void {
-    this.datosPortfolio.getData().subscribe((data) => {
-      this.proyectsList = data.proyects;
+    this.datosPortfolio.getProyects().subscribe((data) => {
+      this.proyectsList = data;
+    });
+  }
+  onDelete(proyect: any) {
+    this.datosPortfolio.onDeleteProyect(proyect).subscribe(() => {
+      this.proyectsList = this.proyectsList.filter(
+        (e: any) => e.id !== proyect.id
+      );
     });
   }
 }

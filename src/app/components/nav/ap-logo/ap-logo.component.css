@@ -1,0 +1,17 @@
+img {
+  width: 100px;
+  background-color: #080f15;
+}
+#aplogo {
+  position: relative;
+  left: 1em;
+}
+.hashtagtext {
+  position: relative;
+  top: 1.1em;
+  color: #cd922d;
+  transition: color 0.2s;
+}
+.hashtagtext:hover {
+  color: #946c41;
+}

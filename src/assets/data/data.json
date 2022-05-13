@@ -9,7 +9,8 @@
   "profession": "FullStack Developer Jr.",
   "location": "Buenos Aires",
   "country": "Argentina",
-  "about": "Estudiante Fullstack Web, pero además músico y compostior. Abriendo campos en el mundo creativo",
+  "about": "Fullstack Web Developer Jr.",
+  "decoration": "Abriendo campos en el mundo creativo.",
   "education": [
     {
       "title": "Bachiller modalidad Comunicación, Arte y Diseño",
@@ -44,11 +45,11 @@
   ],
   "skills": [
     {
-      "skill": "Angular",
-      "logo": "https://i.ibb.co/FDqrQ5g/angular.png",
+      "skill": "HTML",
+      "logo": "https://i.ibb.co/dPkgPmB/html.png",
       "level": {
-        "num": "50",
-        "percentage": "50%"
+        "num": "75",
+        "percentage": "75%"
       }
     },
     {
@@ -61,19 +62,19 @@
     },
 
     {
-      "skill": "HTML",
-      "logo": "https://i.ibb.co/dPkgPmB/html.png",
+      "skill": "JavaScript",
+      "logo": "https://i.ibb.co/12bJg6L/javascript.png",
       "level": {
         "num": "75",
         "percentage": "75%"
       }
     },
     {
-      "skill": "JavaScript",
-      "logo": "https://i.ibb.co/12bJg6L/javascript.png",
+      "skill": "Angular",
+      "logo": "https://i.ibb.co/FDqrQ5g/angular.png",
       "level": {
-        "num": "75",
-        "percentage": "75%"
+        "num": "50",
+        "percentage": "50%"
       }
     },
     {

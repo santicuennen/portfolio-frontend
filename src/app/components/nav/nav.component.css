@@ -1,0 +1,8 @@
+app-media-links {
+  position: relative;
+  float: right;
+  top: 0.28em;
+}
+* {
+  top: 0.5em;
+}

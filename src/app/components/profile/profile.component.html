@@ -1,40 +1,32 @@
 <div>
   <img
     class="img-fluid rounded mx-auto"
-    [src]="myPortfolio.banner"
+    [src]="myPortfolio.urlBanner"
     alt="Responsive image"
   />
+  <a id="prof-edit" href="">
+    <i class="bi bi-pencil-fill"></i>
+  </a>
 </div>
 <div class="container-fluid">
   <div class="profile-container">
     <img
       class="img-fluid"
       id="profileimg"
-      [src]="myPortfolio.profileimg"
+      [src]="myPortfolio.urlImg"
       alt="profile"
     />
-    <a class="edit-ico" id="edit-ico" href="">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="17"
-        height="17"
-        class="bi bi-pen-fill"
-        viewBox="0 0 16 16"
-      >
-        <path
-          d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"
-        />
-      </svg>
-    </a>
-    <h2 class="display-3 data" id="name">{{ myPortfolio.name }}</h2>
+    <h2 class="display-3 data" id="name">
+      {{ myPortfolio.name }} {{ myPortfolio.lastname }}
+    </h2>
   </div>
 
   <div class="container">
-    <h3 class="display-6 text-secondary data">{{ myPortfolio.profession }}</h3>
-    <h3 class="lead text-secondary data">
+    <h3 class="display-6 data">{{ myPortfolio.about }}</h3>
+    <h3 class="lead data">
       <b>{{ myPortfolio.location }}</b>
       {{ myPortfolio.country }}
     </h3>
-    <a class="data" href="#">informacion de contacto</a>
   </div>
 </div>
+<router-outlet></router-outlet>
