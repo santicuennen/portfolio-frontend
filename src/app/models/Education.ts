@@ -5,5 +5,5 @@ export interface Education {
   institution: String;
   startDate: String;
   endDate: String;
-  person_id: number;
+  person_id?: number;
 }

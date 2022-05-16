@@ -7,19 +7,11 @@ import { Education } from '../models/Education';
   providedIn: 'root',
 })
 export class EducationService {
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
-      Authorization: 'authkey',
-      userid: '1',
-    }),
-  };
-
   private url = 'http://localhost:8080';
   constructor(private http: HttpClient) {}
 
   getEdus(): Observable<Education[]> {
-    return this.http.get<Education[]>(`${this.url}/edus`, this.httpOptions);
+    return this.http.get<Education[]>(`${this.url}/edus`);
   }
 
   onDeleteEdu(degree: Education): Observable<Education> {

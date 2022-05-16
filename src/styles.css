@@ -1,4 +1,6 @@
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
 body {
   background-color: #080f15;
 }
@@ -96,9 +98,13 @@ body {
   transition: color 0.3s;
 }
 .icon-custom-add:hover {
+  cursor: pointer;
   color: #946c41;
 }
 
+#addnew:hover {
+  cursor: pointer;
+}
 #year {
   color: #daa140;
 }
@@ -123,4 +129,18 @@ body {
 .edit_btn:hover {
   color: #bdbdbd;
   cursor: pointer;
+}
+.submit_btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.example-type {
+  background-color: #daa140;
+}
+
+.form-control:focus {
+  border-color: #daa140;
+  box-shadow: inset 0 1px 1px #00000013, 0 0 8px #daa140;
 }
