@@ -4,6 +4,7 @@ h3 {
 }
 
 #prof-edit {
+  cursor: pointer;
   position: relative;
   top: 180px;
   left: 200px;
@@ -14,5 +15,6 @@ h3 {
 }
 
 #prof-edit:hover {
-  color: #bdbdbd;
+  cursor: pointer;
+  color: #daa140;
 }

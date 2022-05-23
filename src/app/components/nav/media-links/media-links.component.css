@@ -15,16 +15,16 @@ button {
   color: #daa140;
   text-align: center;
   text-decoration: none;
-  bottom: 3.6em;
+  bottom: 4.7em;
   left: 0.3em;
   right: 0.2em;
   transition: color 0.2s, border 0.2s;
 }
 .icon-custom {
+  position: relative;
+  bottom: 0.8em;
   color: #daa140;
   transition: color 0.2s;
-  position: relative;
-  bottom: 0.2em;
 }
 
 button:hover,

@@ -2,6 +2,6 @@ export interface Proyects {
   id?: number;
   title: String;
   url: String;
-  whenDate: String;
+  yearDate: number;
   description: String;
 }

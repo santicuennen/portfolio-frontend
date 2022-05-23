@@ -3,5 +3,4 @@ export interface Skills {
   title: String;
   urlImg: String;
   num: number;
-  percentage: String;
 }

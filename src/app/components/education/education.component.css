@@ -5,3 +5,16 @@ p {
 #year {
   color: #daa140;
 }
+
+.div-border {
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 0.5px solid #080f15;
+  box-shadow: #080f15 2px 3px 10px;
+}
+.div-border:hover {
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 0.5px solid #daa140;
+  box-shadow: #101e2b 2px 3px 10px;
+}

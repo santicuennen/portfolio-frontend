@@ -4,7 +4,7 @@
     [src]="myPortfolio.urlBanner"
     alt="Responsive image"
   />
-  <a id="prof-edit" href="">
+  <a id="prof-edit" (click)="openEdit(contentEdit, myPortfolio)">
     <i class="bi bi-pencil-fill"></i>
   </a>
 </div>
@@ -30,3 +30,156 @@
   </div>
 </div>
 <router-outlet></router-outlet>
+
+<ng-template #contentEdit let-modal>
+  <div class="modal-header example-type">
+    <h4 class="modal-title" id="modal-basic-title-1">
+      Editar Proyect / Edit Proyect
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm" novalidate>
+      <div class="form-group">
+        <label for="id"
+          >ID de {{ myPortfolio.name }} / {{ myPortfolio.name }}'s ID</label
+        >
+        <div class="input-group">
+          <input
+            type="number"
+            formControlName="id"
+            class="form-control"
+            readonly
+          />
+        </div>
+        <label for="aboutMe">Sobre mí / About me</label>
+        <div class="input-group">
+          <input
+            (change)="captureFile($event)"
+            type="file"
+            formControlName="urlImg"
+            class="form-control"
+          />
+        </div>
+        <div *ngIf="previs">
+          <p id="preview-text">PREVIEW</p>
+          <img
+            class="rounded mx-auto d-block"
+            width="100px"
+            [src]="previs"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="text-center" *ngIf="previs">
+        <button
+          data-dismiss="modal"
+          class="btn btn-dark"
+          (click)="uploadFile()"
+        >
+          Subir foto / Upload image
+        </button>
+      </div>
+      <div class="text-center">
+        <button
+          data-dismiss="modal"
+          class="btn"
+          id="submit_btn"
+          (click)="onSave(editForm)"
+        >
+          Guardar cambios / Save changes
+        </button>
+      </div>
+      <!-- hidden inputs -->
+      <div>
+        <div class="hidden">
+          <div class="input-group">
+            <input
+              type="hidden"
+              formControlName="name"
+              class="form-control"
+              readonly
+            />
+          </div>
+
+          <div class="input-group">
+            <input
+              type="hidden"
+              formControlName="lastname"
+              class="form-control"
+              readonly
+            />
+          </div>
+
+          <div class="input-group">
+            <input
+              type="hidden"
+              formControlName="email"
+              class="form-control"
+              readonly
+            />
+          </div>
+
+          <div class="input-group">
+            <input
+              type="hidden"
+              formControlName="password"
+              class="form-control"
+              readonly
+            />
+          </div>
+
+          <div class="input-group">
+            <input
+              type="hidden"
+              formControlName="about"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="hidden"
+              formControlName="country"
+              class="form-control"
+              readonly
+            />
+          </div>
+
+          <div class="input-group">
+            <input
+              type="hidden"
+              formControlName="location"
+              class="form-control"
+              readonly
+            />
+          </div>
+
+          <div class="input-group">
+            <input
+              type="hidden"
+              formControlName="urlBanner"
+              class="form-control"
+              readonly
+            />
+          </div>
+          <div class="input-group">
+            <input
+              type="hidden"
+              formControlName="aboutMe"
+              class="form-control"
+              readonly
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>

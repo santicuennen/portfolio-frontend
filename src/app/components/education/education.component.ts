@@ -2,19 +2,23 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { EducationService } from 'src/app/services/education.service';
 import { Education } from 'src/app/models/Education';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+
 @Component({
   selector: 'app-education',
   templateUrl: './education.component.html',
   styleUrls: ['./education.component.css'],
 })
 export class EducationComponent implements OnInit {
-  closeResult: string | undefined;
-  educationList: any;
-
   constructor(
     private datosPortfolio: EducationService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private fb: FormBuilder
   ) {}
+
+  closeResult: string | undefined;
+  educationList: any;
+  editForm: any | FormGroup;
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -29,6 +33,32 @@ export class EducationComponent implements OnInit {
     this.datosPortfolio.getEdus().subscribe((data) => {
       this.educationList = data;
     });
+    this.editForm = this.fb.group({
+      id: [0],
+      title: [''],
+      type: [''],
+      institution: [''],
+      startDate: [''],
+      endDate: [''],
+    });
+  }
+  openEdit(contentEdit: any, education: Education) {
+    this.modalService.open(contentEdit);
+    this.editForm.patchValue({
+      id: education.id,
+      title: education.title,
+      type: education.type,
+      institution: education.institution,
+      startDate: education.startDate,
+      endDate: education.endDate,
+    });
+  }
+  onSave(editForm: FormGroup) {
+    console.log(editForm.value);
+    this.datosPortfolio.editEdu(editForm).subscribe((r) => {
+      this.ngOnInit();
+      this.modalService.dismissAll();
+    });
   }
 
   onDelete(degree: Education) {
@@ -38,7 +68,8 @@ export class EducationComponent implements OnInit {
       );
     });
   }
-  open(content: any) {
+
+  openAdd(content: any) {
     this.modalService
       .open(content, { ariaLabelledBy: 'modal-basic-title' })
       .result.then(
@@ -49,5 +80,11 @@ export class EducationComponent implements OnInit {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         }
       );
+  }
+
+  onSubmit(f: NgForm) {
+    this.datosPortfolio.addEdu(f).subscribe((r) => {
+      this.ngOnInit();
+    });
   }
 }

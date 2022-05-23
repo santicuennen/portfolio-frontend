@@ -2,37 +2,49 @@
   <div class="container">
     <h2 class="data title">Education</h2>
     <h1>
-      <a (click)="open(content)">
+      <a #addBtn (click)="openAdd(content)">
         <i class="bi bi-file-plus-fill icon-custom-add"></i>
       </a>
     </h1>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item body" *ngFor="let degree of educationList">
-      <div class="list-group-item flex-column align-items-start body">
-        <div class="d-flex w-100 justify-content-between">
-          <h5 class="mb-1">{{ degree.title }}</h5>
-          <p class="mb-1" id="year">{{ degree.endDate }}</p>
-          <div>
-            <a (click)="onDelete(degree)"
-              ><i class="bi bi-trash3 delete_btn"></i
-            ></a>
-            <a class="edit_btn" routerLink="/educationedit">
-              <i class="bi bi-pencil-fill"></i>
-            </a>
+      <div class="div-border">
+        <div class="list-group-item flex-column align-items-start body">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{ degree.title }}</h5>
+            <p class="mb-1" id="year">
+              <span>
+                {{ degree.startDate }}
+              </span>
+              -
+              <span>
+                {{ degree.endDate }}
+              </span>
+            </p>
+            <p>{{ degree.type }}</p>
+            <div>
+              <a (click)="onDelete(degree)"
+                ><i class="bi bi-trash3 delete_btn"></i
+              ></a>
+              <a (click)="openEdit(contentEdit, degree)">
+                <i class="bi bi-pencil-fill edit_btn"></i>
+              </a>
+            </div>
           </div>
+          <p class="mb-1">
+            {{ degree.institution }}
+          </p>
         </div>
-        <p class="mb-1">
-          {{ degree.institution }}
-        </p>
       </div>
     </li>
   </ul>
 </div>
 
+<!-- add new education item -->
 <ng-template #content let-modal>
   <div class="modal-header example-type">
-    <h4 class="modal-title" id="modal-basic-title">Nueva Educación</h4>
+    <h4 class="modal-title" id="modal-basic-title">New Education Item</h4>
     <button
       type="button"
       class="close"
@@ -43,32 +55,65 @@
     </button>
   </div>
   <div class="modal-body">
-    <form class="add-form">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <div class="form-group">
-        <label for="firstname">Título</label>
+        <label for="title">Título / Title</label>
         <div class="input-group">
-          <input id="title" class="form-control" />
+          <input
+            id="title"
+            name="title"
+            class="form-control"
+            [(ngModel)]="educationList.title"
+          />
         </div>
-        <label for="firstname">Tipo de título</label>
+        <label for="type">Tipo de título / Title type</label>
         <div class="input-group">
-          <input id="title-type" class="form-control" />
-          <div class="input-group-append">
+          <input
+            id="type"
+            name="type"
+            class="form-control"
+            [(ngModel)]="educationList.type"
+          />
+          <div class="input-group-start col">
             <span class="input-group-text example-type" id="basic-addon2 "
-              >ej: curso, universitario, etc.
+              >(curso, titulo universitario, etc. / Course, college degree,
+              etc.)
             </span>
           </div>
         </div>
-        <label for="firstname">Institución</label>
+        <label for="institution">Institución / Institution</label>
         <div class="input-group">
-          <input id="institution" class="form-control" />
+          <input
+            id="institution"
+            name="institution"
+            class="form-control"
+            [(ngModel)]="educationList.institution"
+          />
         </div>
-        <label for="firstname">Año ingreso</label>
+        <label for="startDate">Año de ingreso / Start Date (year)</label>
         <div class="input-group">
-          <input id="startDate" class="form-control" />
+          <input
+            id="startDate"
+            name="startDate"
+            class="form-control"
+            [(ngModel)]="educationList.startDate"
+          />
         </div>
-        <label for="firstname">Año finalización</label>
+        <label for="endDate">Año de finalización / End date (year)</label>
         <div class="input-group">
-          <input id="endDate" class="form-control" />
+          <input
+            id="endDate"
+            name="endDate"
+            class="form-control"
+            [(ngModel)]="educationList.endDate"
+          />
+        </div>
+      </div>
+      <div>
+        <div class="text-center">
+          <button data-dismiss="modal" class="btn" id="submit_btn">
+            Agregar / Add
+          </button>
         </div>
       </div>
     </form>
@@ -79,7 +124,75 @@
       class="btn btn-outline-dark"
       (click)="modal.close('Save click')"
     >
-      Guardar
+      Guardar / Save
     </button>
+  </div>
+</ng-template>
+
+<!-- edit education item -->
+<ng-template #contentEdit let-modal>
+  <div class="modal-header example-type">
+    <h4 class="modal-title" id="modal-basic-title-1">
+      Editar Educación / Edit Education Item
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm" novalidate>
+      <div class="form-group">
+        <label for="title">Título / Title</label>
+        <div class="input-group">
+          <input formControlName="title" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="type">Tipo de título / Title type</label>
+        <div class="input-group">
+          <input formControlName="type" class="form-control" />
+        </div>
+        <div class="input-group-append">
+          <span class="input-group-text example-type" id="basic-addon2 "
+            >curso, titulo universitario, etc. / Course, college degree, etc.
+          </span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="institution">Institución / Institution</label>
+        <div class="input-group">
+          <input formControlName="institution" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="startDate">Año de ingreso / Start Date (year)</label>
+        <div class="input-group">
+          <input formControlName="startDate" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="endDate">Año de finalización / End Date (year)</label>
+        <div class="input-group">
+          <input formControlName="endDate" class="form-control" />
+        </div>
+      </div>
+      <div>
+        <div class="text-center">
+          <button
+            data-dismiss="modal"
+            class="btn"
+            id="submit_btn"
+            (click)="onSave(editForm)"
+          >
+            Modificar / Modify
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 </ng-template>

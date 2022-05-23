@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="data title">Hard & Soft Skills</h2>
     <h1>
-      <a href="">
+      <a (click)="openAdd(content)">
         <i
           class="bi bi-file-plus-fill icon-custom-add"
           id="icon-custom-add"
@@ -11,26 +11,147 @@
     </h1>
   </div>
   <div class="container" *ngFor="let skill of mySkills">
-    <div class="bar">
-      <div>
-        <a (click)="onDelete(skill)"
-          ><i class="bi bi-trash3 delete_btn"> </i
-        ></a>
-        <a class="edit_btn" href="">
-          <i class="bi bi-pencil-fill"></i>
-        </a>
-      </div>
-      <img class="logo" [src]="skill.urlImg" alt="logo" />
-      <div class="progress">
-        <div
-          class="progress-bar progress-bar-striped"
-          role="progressbar"
-          [attr.aria-valuenow]="skill.num"
-          [ngStyle]="{ width: skill.percentage }"
-          aria-valuemin="0"
-          aria-valuemax="100"
-        ></div>
+    <div class="div-border">
+      <div class="bar">
+        <span style="position: relative; top: 2em; color: #bdbdbd">{{
+          skill.title
+        }}</span>
+        <div>
+          <a (click)="onDelete(skill)"
+            ><i class="bi bi-trash3 delete_btn"> </i
+          ></a>
+          <a (click)="openEdit(contentEdit, skill)">
+            <i class="bi bi-pencil-fill edit_btn"></i>
+          </a>
+        </div>
+        <img class="logo" [src]="skill.urlImg" alt="logo" />
+        <mat-progress-bar
+          mode="determinate"
+          value="{{ skill.num }}"
+        ></mat-progress-bar>
       </div>
     </div>
   </div>
 </div>
+
+<!-- add new skill -->
+<ng-template #content let-modal>
+  <div class="modal-header example-type">
+    <h4 class="modal-title" id="modal-basic-title">
+      Nueva Habilidad / New Skill
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div class="form-group">
+        <label for="type">Habilidad / Skill Name</label>
+        <div class="input-group">
+          <input
+            id="title"
+            name="title"
+            class="form-control"
+            [(ngModel)]="mySkills.title"
+          />
+        </div>
+        <label for="urlImg"
+          >insertar url de imagen (png) / instert image url (png)</label
+        >
+        <div class="input-group">
+          <input
+            id="urlImg"
+            name="urlImg"
+            class="form-control"
+            [(ngModel)]="mySkills.urlImg"
+          />
+        </div>
+        <label for="type">Nivel de Habilidad / Skill Level</label>
+        <div class="input-group">
+          <input
+            type="number"
+            id="num"
+            name="num"
+            class="form-control"
+            [(ngModel)]="mySkills.num"
+          />
+        </div>
+      </div>
+      <div>
+        <div class="text-center">
+          <button data-dismiss="modal" class="btn" id="submit_btn">
+            Agregar / Add
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Guardar
+    </button>
+  </div>
+</ng-template>
+
+<!-- edit education item -->
+<ng-template #contentEdit let-modal>
+  <div class="modal-header example-type">
+    <h4 class="modal-title" id="modal-basic-title-1">
+      Editar Habilidad / Edit Skill
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="editForm" novalidate>
+      <div class="form-group">
+        <label for="title">Habilidad / Skill </label>
+        <div class="input-group">
+          <input formControlName="title" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="urlImg"
+          >insertar url de imagen (png) / instert image url (png)</label
+        >
+        <div class="input-group">
+          <input formControlName="urlImg" class="form-control" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="num">>Nivel de Habilidad / Skill Level</label>
+        <div class="input-group">
+          <input formControlName="num" class="form-control" />
+        </div>
+      </div>
+      <div>
+        <div class="text-center">
+          <button
+            data-dismiss="modal"
+            class="btn"
+            id="submit_btn"
+            (click)="onSave(editForm)"
+          >
+            Modificar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template>

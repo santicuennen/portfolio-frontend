@@ -21,6 +21,7 @@ import { EditEduComponent } from './components/new-item-components/edit-componen
 import { EditProyectsComponent } from './components/new-item-components/edit-components/edit-proyects/edit-proyects.component';
 import { EditSkillsComponent } from './components/new-item-components/edit-components/edit-skills/edit-skills.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     FormsModule,
     NgbModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
