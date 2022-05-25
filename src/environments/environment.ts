@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyDg6bRNtl9sgUbCJ6Qsba4xIR7DXRwG2Q8',
+    authDomain: 'cuenca-penen-portfolio-hosting.firebaseapp.com',
+    projectId: 'cuenca-penen-portfolio-hosting',
+    storageBucket: 'cuenca-penen-portfolio-hosting.appspot.com',
+    messagingSenderId: '15118709544',
+    appId: '1:15118709544:web:156e97e66108a9e84ed61d',
+    measurementId: 'G-CWF9FJ00S7',
+  },
 };
 
 /*

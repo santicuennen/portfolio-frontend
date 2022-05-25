@@ -11,25 +11,27 @@
     </h1>
   </div>
   <div class="container" *ngFor="let skill of mySkills">
-    <div class="div-border">
-      <div class="bar">
-        <span style="position: relative; top: 2em; color: #bdbdbd">{{
-          skill.title
-        }}</span>
-        <div>
-          <a (click)="onDelete(skill)"
-            ><i class="bi bi-trash3 delete_btn"> </i
-          ></a>
-          <a (click)="openEdit(contentEdit, skill)">
-            <i class="bi bi-pencil-fill edit_btn"></i>
-          </a>
-        </div>
-        <img class="logo" [src]="skill.urlImg" alt="logo" />
-        <mat-progress-bar
-          mode="determinate"
-          value="{{ skill.num }}"
-        ></mat-progress-bar>
+    <div class="div-border"></div>
+    <div class="bar">
+      <span class="skill-title">{{ skill.title }}</span>
+      <div class="skill-button">
+        <a (click)="onDelete(skill)"
+          ><i class="bi bi-trash3 delete_btn"> </i
+        ></a>
+        <a (click)="openEdit(contentEdit, skill)">
+          <i class="bi bi-pencil-fill edit_btn"></i>
+        </a>
       </div>
+      <img
+        *ngIf="skill.urlImg != null"
+        class="logo"
+        [src]="skill.urlImg"
+        alt="logo"
+      />
+      <mat-progress-bar
+        mode="determinate"
+        value="{{ skill.num }}"
+      ></mat-progress-bar>
     </div>
   </div>
 </div>
@@ -61,9 +63,7 @@
             [(ngModel)]="mySkills.title"
           />
         </div>
-        <label for="urlImg"
-          >insertar url de imagen (png) / instert image url (png)</label
-        >
+        <label for="urlImg">Opcional imagen .png / Opcional image .png </label>
         <div class="input-group">
           <input
             id="urlImg"

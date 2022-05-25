@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { DomSanitizer } from '@angular/platform-browser';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Person } from 'src/app/models/Person';
+import { ProfilePic } from 'src/app/models/ProfilePic';
 import { PersonService } from 'src/app/services/person.service';
+import { ProfiePicService } from 'src/app/services/profie-pic.service';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-profile',
@@ -13,101 +14,56 @@ import { PersonService } from 'src/app/services/person.service';
 export class ProfileComponent implements OnInit {
   constructor(
     private datosPortfolio: PersonService,
-    private modalService: NgbModal,
-    private fb: FormBuilder,
-    private sanitizer: DomSanitizer
+    private picservice: ProfiePicService,
+    private fb: FormBuilder
   ) {}
 
   //variables
-
-  myPortfolio: any;
   editForm: any | FormGroup;
-  public imgFiles: any = [];
-  public previs: string | any;
+  picture: any | ProfilePic;
+  myPortfolio: any | Person;
+  file: any[] = [];
+  onload: any = false;
+  loading: string =
+    'https://firebasestorage.googleapis.com/v0/b/cuenca-penen-portfolio-hosting.appspot.com/o/users%2Fprofile-pic%2Fprofile_1653498494141?alt=media&token=c4215758-8d2c-4430-9691-48613eedb51c';
   //functions
-
   ngOnInit(): void {
-    this.datosPortfolio.getPerson().subscribe((data) => {
-      this.myPortfolio = data;
-    });
+    this.picservice.getPicture().subscribe((pic) => (this.picture = pic));
+    this.datosPortfolio
+      .getPerson()
+      .subscribe((data) => (this.myPortfolio = data));
     this.editForm = this.fb.group({
       id: [0],
-      name: [''],
-      lastname: [''],
-      email: [''],
-      password: [''],
-      about: [''],
-      aboutMe: [''],
-      urlImg: [''],
-      country: [''],
-      location: [''],
-      urlBanner: [''],
+      picUrl: [''],
     });
-  }
-  openEdit(contentEdit: any, person: Person) {
-    this.modalService.open(contentEdit);
-    this.editForm.patchValue({
-      id: person.id,
-      name: person.name,
-      lastname: person.lastname,
-      email: person.email,
-      password: person.password,
-      about: person.about,
-      aboutMe: person.aboutMe,
-      urlImg: person.urlImg,
-      country: person.country,
-      location: person.location,
-      urlBanner: person.urlBanner,
-    });
-  }
-  onSave(editForm: FormGroup) {
-    this.datosPortfolio.patchPerson(editForm).subscribe((r) => {
-      this.ngOnInit();
-      this.modalService.dismissAll();
-    });
-  }
-  captureFile(event: any) {
-    const capturedFile = event.target.files[0];
-    this.extraerBase64(capturedFile).then((file: any) => {
-      this.previs = file.base;
-    });
-    this.imgFiles.push(capturedFile);
-  }
-  uploadFile(): any {
-    try {
-      const dataForm = new FormData();
-      this.imgFiles.forEach((file: any) => {
-        console.log(file);
-        dataForm.append('files', file);
-      });
-      this.datosPortfolio.patchPerson(this.imgFiles).subscribe((r) => {
-        this.ngOnInit();
-        this.modalService.dismissAll();
-      });
-    } catch (e) {
-      console.log(e);
-    }
   }
 
-  extraerBase64 = async ($event: any) =>
-    new Promise((resolve, reject): any => {
-      try {
-        const unsafeImg = window.URL.createObjectURL($event);
-        const image = this.sanitizer.bypassSecurityTrustUrl(unsafeImg);
-        const reader = new FileReader();
-        reader.readAsDataURL($event);
-        reader.onload = () => {
-          resolve({
-            base: reader.result,
+  onCapture(event: any, picture: ProfilePic) {
+    const name = 'profile';
+    const newFile = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(newFile);
+    reader.onloadstart = () => {
+      this.onload = true;
+    };
+    reader.onloadend = () => {
+      this.file.push(reader.result);
+      this.picservice
+        .uploadPicture(`${name}_${Date.now()}`, reader.result)
+        .then((imgUrl) => {
+          console.log('Uploading photo');
+          console.log(imgUrl);
+
+          this.editForm.patchValue({
+            id: 1,
+            picUrl: imgUrl,
+            person_id: 1,
           });
-        };
-        reader.onerror = (error) => {
-          resolve({
-            base: null,
-          });
-        };
-      } catch (e) {
-        return null;
-      }
-    });
+          this.picservice
+            .putPicture(this.editForm)
+            .subscribe((r) => this.ngOnInit());
+          this.onload = false;
+        });
+    };
+  }
 }

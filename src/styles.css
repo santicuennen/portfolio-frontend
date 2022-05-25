@@ -88,8 +88,9 @@ body {
   height: 4em;
   position: relative;
   width: 5em;
-  right: 5.5em;
-  top: 2.5em;
+  right: 3.4em;
+  top: 2em;
+  z-index: 100;
 }
 .icon-custom-add {
   position: relative;
