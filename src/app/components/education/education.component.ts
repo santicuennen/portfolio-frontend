@@ -54,7 +54,6 @@ export class EducationComponent implements OnInit {
     });
   }
   onSave(editForm: FormGroup) {
-    console.log(editForm.value);
     this.datosPortfolio.editEdu(editForm).subscribe((r) => {
       this.ngOnInit();
       this.modalService.dismissAll();

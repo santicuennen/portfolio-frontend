@@ -13,15 +13,10 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApLogoComponent } from './components/nav/ap-logo/ap-logo.component';
 import { MediaLinksComponent } from './components/nav/media-links/media-links.component';
-import { NewSkillFormComponent } from './components/new-item-components/new-skill-form/new-skill-form.component';
-import { NewProyectFormComponent } from './components/new-item-components/new-proyect-form/new-proyect-form.component';
-import { NewEducationFormComponent } from './components/new-item-components/new-education-form/new-education-form.component';
-import { AboutmeEditComponent } from './components/new-item-components/aboutme-edit/aboutme-edit.component';
-import { EditEduComponent } from './components/new-item-components/edit-components/edit-edu/edit-edu.component';
-import { EditProyectsComponent } from './components/new-item-components/edit-components/edit-proyects/edit-proyects.component';
-import { EditSkillsComponent } from './components/new-item-components/edit-components/edit-skills/edit-skills.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { NewUserFormComponent } from './components/new-user-form/new-user-form.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -36,13 +31,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     PortfolioComponent,
     ApLogoComponent,
     MediaLinksComponent,
-    NewSkillFormComponent,
-    NewProyectFormComponent,
-    NewEducationFormComponent,
-    AboutmeEditComponent,
-    EditEduComponent,
-    EditProyectsComponent,
-    EditSkillsComponent,
+    NewUserFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +41,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     FormsModule,
     NgbModule,
     MatProgressBarModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

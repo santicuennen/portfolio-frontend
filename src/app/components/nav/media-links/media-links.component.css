@@ -7,31 +7,14 @@ a {
   bottom: 3em;
 }
 
-button {
-  position: relative;
-  background-color: #080f15;
-  border: 1px solid #daa140;
-  border-radius: 3px;
-  color: #daa140;
-  text-align: center;
-  text-decoration: none;
-  bottom: 4.7em;
-  left: 0.3em;
-  right: 0.2em;
-  transition: color 0.2s, border 0.2s;
-}
 .icon-custom {
   position: relative;
+  left: 2em;
   bottom: 0.8em;
   color: #daa140;
   transition: color 0.2s;
 }
 
-button:hover,
 .icon-custom:hover {
   color: #946c41;
-}
-button:hover {
-  border: 1px solid #946c41;
-  cursor: pointer;
 }

@@ -4,7 +4,6 @@ import { Person } from 'src/app/models/Person';
 import { ProfilePic } from 'src/app/models/ProfilePic';
 import { PersonService } from 'src/app/services/person.service';
 import { ProfiePicService } from 'src/app/services/profie-pic.service';
-import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-profile',
@@ -57,6 +56,7 @@ export class ProfileComponent implements OnInit {
           this.editForm.patchValue({
             id: 1,
             picUrl: imgUrl,
+            urlBanner: this.picture.urlBanner,
             person_id: 1,
           });
           this.picservice

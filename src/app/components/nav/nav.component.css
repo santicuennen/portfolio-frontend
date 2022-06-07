@@ -6,3 +6,20 @@ app-media-links {
 * {
   top: 0.5em;
 }
+button {
+  position: relative;
+  float: right;
+  bottom: 15em;
+  background-color: #080f15;
+  border: 1px solid #daa140;
+  border-radius: 3px;
+  color: #daa140;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.2s, border 0.2s;
+}
+button:hover {
+  color: #946c41;
+  border: 1px solid #946c41;
+  cursor: pointer;
+}

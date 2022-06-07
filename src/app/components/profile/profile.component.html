@@ -1,10 +1,9 @@
 <div>
   <img
     class="img-fluid rounded mx-auto"
-    [src]="myPortfolio.urlBanner"
+    [src]="picture.urlBanner"
     alt="banner"
   />
-
   <input
     type="file"
     accept=".png, .jpg, .jpeg, .gif"
@@ -32,7 +31,7 @@
   <div class="container">
     <h3 class="display-6 data">{{ myPortfolio.about }}</h3>
     <h3 class="lead data">
-      <b>{{ myPortfolio.location }}</b>
+      <b>{{ myPortfolio.location }}</b> -
       {{ myPortfolio.country }}
     </h3>
   </div>

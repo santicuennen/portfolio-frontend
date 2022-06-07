@@ -1,3 +1,6 @@
+div .container-fluid {
+  border: none;
+}
 .bar {
   position: relative;
   margin-top: 1em;
@@ -9,41 +12,43 @@
   left: 6em;
 }
 mat-progress-bar {
-  left: 1.5em;
+  top: 3em;
+  left: 10vw;
   height: 0.5em;
+  width: 80vw;
   border-radius: 10px;
 }
 
 .div-border {
-  position: absolute;
-  right: 1.5em;
-  border: 0.5px solid #080f15;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  border: 0.5px solid #080f15;
   box-shadow: #080f15 2px 3px 10px;
-  width: 74.7em;
-  height: 5.5em;
-  z-index: 98;
 }
 .div-border:hover {
-  position: absolute;
-  right: 1.5em;
-  border: 1px solid #daa140;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  border: 0.5px solid #daa140;
   box-shadow: #101e2b 2px 3px 10px;
-  width: 74.7em;
-  height: 5.5em;
-  z-index: 98;
 }
 .skill-title {
   position: relative;
-  left: 2em;
+  left: 10vw;
   top: 3em;
   color: #bdbdbd;
 }
 .skill-button {
   position: relative;
   top: 1em;
+  z-index: 100;
+}
+.logo {
+  object-fit: contain;
+  width: 4em;
+  height: 4em;
+  position: relative;
+  width: 5em;
+
+  top: 2em;
   z-index: 100;
 }

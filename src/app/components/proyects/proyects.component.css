@@ -7,5 +7,22 @@ h5,
 }
 #seemore {
   background-color: #daa140;
-  border: 1px solid #848484;
+  border: none;
+  transition: background-color 0.2s;
+}
+#seemore:hover {
+  background-color: #946c41;
+  border: none;
+}
+.div-border {
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 1px solid #080f15;
+  box-shadow: #080f15 2px 10px;
+}
+.div-border:hover {
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border: 0.5px solid #daa140;
+  box-shadow: #101e2b 2px 3px 10px;
 }

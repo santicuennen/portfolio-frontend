@@ -6,8 +6,6 @@ export interface Person {
   password: string;
   about: string;
   aboutMe: string;
-  urlImg: string;
   country: string;
   location: string;
-  urlBanner: String;
 }

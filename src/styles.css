@@ -82,16 +82,6 @@ body {
   border: 0.1em solid #bdbdbd;
 }
 
-.logo {
-  object-fit: contain;
-  width: 4em;
-  height: 4em;
-  position: relative;
-  width: 5em;
-  right: 3.4em;
-  top: 2em;
-  z-index: 100;
-}
 .icon-custom-add {
   position: relative;
   bottom: 1.85em;

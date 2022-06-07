@@ -45,10 +45,8 @@ export class AboutMeComponent implements OnInit {
       password: person.password,
       about: person.about,
       aboutMe: person.aboutMe,
-      urlImg: person.urlImg,
       country: person.country,
       location: person.location,
-      urlBanner: person.urlBanner,
     });
   }
   onSave(editForm: FormGroup) {
