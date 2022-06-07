@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NewUserFormComponent } from './components/new-user-form/new-user-form.component';
 import { ToastrModule } from 'ngx-toastr';
+import { interceptorProvider } from './interceptor/portfolio-intercerptor.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatProgressBarModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
