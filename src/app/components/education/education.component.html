@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" cdkDropListGroup>
   <div class="container">
     <h2 class="data title">Education</h2>
     <h1>
@@ -7,8 +7,16 @@
       </a>
     </h1>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item body" *ngFor="let degree of educationList">
+  <ul
+    class="list-group list-group-flush"
+    cdkDropList
+    (cdkDropListDropped)="onDrop($event)"
+  >
+    <li
+      class="list-group-item body"
+      *ngFor="let degree of educationList"
+      cdkDrag
+    >
       <div class="div-border mb-4">
         <div class="list-group-item flex-column align-items-start body">
           <div class="d-flex w-100 justify-content-between">

@@ -7,8 +7,16 @@
       </a>
     </h1>
   </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item body" *ngFor="let proyect of proyectsList">
+  <ul
+    class="list-group list-group-flush"
+    cdkDropList
+    (cdkDropListDropped)="onDrop($event)"
+  >
+    <li
+      class="list-group-item body"
+      *ngFor="let proyect of proyectsList"
+      cdkDrag
+    >
       <div class="div-border mb-4">
         <div class="list-group-item flex-column align-items-start body">
           <div class="d-flex w-100 justify-content-between">

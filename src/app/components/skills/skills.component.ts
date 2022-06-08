@@ -1,3 +1,4 @@
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -91,5 +92,8 @@ export class SkillsComponent implements OnInit {
     this.datosPortfolio.onDeleteSkill(skill).subscribe(() => {
       this.mySkills = this.mySkills.filter((e: any) => e.id !== skill.id);
     });
+  }
+  onDrop(event: CdkDragDrop<any>) {
+    moveItemInArray(this.mySkills, event.previousIndex, event.currentIndex);
   }
 }

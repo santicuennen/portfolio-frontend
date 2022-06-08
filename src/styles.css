@@ -12,7 +12,7 @@ body {
   height: 100%;
   border: 0.1em solid #cd922d;
   border-radius: 20px;
-  transition: all 0.2s;
+  transition: border 0.2s;
 }
 .container-fluid:hover {
   border: 0.1em solid #f7e11a;

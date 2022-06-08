@@ -4,6 +4,7 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Proyects } from 'src/app/models/Proyects';
 import { TokenService } from 'src/app/services/auth/token.service';
 import { ProyectsService } from 'src/app/services/proyects.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-proyects',
@@ -90,5 +91,9 @@ export class ProyectsComponent implements OnInit {
         (e: any) => e.id !== proyect.id
       );
     });
+  }
+
+  onDrop(event: CdkDragDrop<any>) {
+    moveItemInArray(this.proyectsList, event.previousIndex, event.currentIndex);
   }
 }

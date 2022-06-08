@@ -4,6 +4,7 @@ import { Education } from 'src/app/models/Education';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { TokenService } from 'src/app/services/auth/token.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-education',
@@ -95,5 +96,13 @@ export class EducationComponent implements OnInit {
     this.datosPortfolio.addEdu(f).subscribe((r) => {
       this.ngOnInit();
     });
+  }
+
+  onDrop(event: CdkDragDrop<any>) {
+    moveItemInArray(
+      this.educationList,
+      event.previousIndex,
+      event.currentIndex
+    );
   }
 }

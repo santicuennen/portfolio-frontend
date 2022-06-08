@@ -19,6 +19,7 @@ import { NewUserFormComponent } from './components/new-user-form/new-user-form.c
 import { ToastrModule } from 'ngx-toastr';
 import { interceptorProvider } from './interceptor/portfolio-intercerptor.service';
 import { FooterComponent } from './components/footer/footer.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { FooterComponent } from './components/footer/footer.component';
     NgbModule,
     MatProgressBarModule,
     ToastrModule.forRoot(),
+    DragDropModule,
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent],
