@@ -2,14 +2,14 @@
   <div class="container">
     <h2 class="data title">Education</h2>
     <h1>
-      <a #addBtn (click)="openAdd(content)">
+      <a #addBtn *ngIf="isAdmin" (click)="openAdd(content)">
         <i class="bi bi-file-plus-fill icon-custom-add"></i>
       </a>
     </h1>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item body" *ngFor="let degree of educationList">
-      <div class="div-border">
+      <div class="div-border mb-4">
         <div class="list-group-item flex-column align-items-start body">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">{{ degree.title }}</h5>
@@ -24,10 +24,10 @@
             </p>
             <p>{{ degree.type }}</p>
             <div>
-              <a (click)="onDelete(degree)"
+              <a *ngIf="isAdmin" (click)="onDelete(degree)"
                 ><i class="bi bi-trash3 delete_btn"></i
               ></a>
-              <a (click)="openEdit(contentEdit, degree)">
+              <a *ngIf="isAdmin" (click)="openEdit(contentEdit, degree)">
                 <i class="bi bi-pencil-fill edit_btn"></i>
               </a>
             </div>

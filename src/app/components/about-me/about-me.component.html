@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <a (click)="openEdit(contentEdit, myPortfolio)">
+  <a *ngIf="isAdmin" (click)="openEdit(contentEdit, myPortfolio)">
     <i class="bi bi-pencil-fill edit-ico"></i>
   </a>
   <div class="container">

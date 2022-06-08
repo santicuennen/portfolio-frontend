@@ -21,3 +21,20 @@ h3 {
 #inputFile {
   display: none;
 }
+#banner-input {
+  display: none;
+}
+#banner-edit {
+  z-index: 100;
+  cursor: pointer;
+  color: #daa140;
+  position: relative;
+  left: 95vw;
+  top: 60vh;
+  font-size: 25px;
+  transition: color 0.2s;
+}
+#banner-edit:hover {
+  cursor: pointer;
+  color: #f7e11a;
+}

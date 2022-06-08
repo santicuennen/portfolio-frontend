@@ -3,6 +3,7 @@ import { EducationService } from 'src/app/services/education.service';
 import { Education } from 'src/app/models/Education';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
+import { TokenService } from 'src/app/services/auth/token.service';
 
 @Component({
   selector: 'app-education',
@@ -10,8 +11,11 @@ import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
   styleUrls: ['./education.component.css'],
 })
 export class EducationComponent implements OnInit {
+  roles: string[] | any;
+  isAdmin = false;
   constructor(
     private datosPortfolio: EducationService,
+    private tokenService: TokenService,
     private modalService: NgbModal,
     private fb: FormBuilder
   ) {}
@@ -32,6 +36,12 @@ export class EducationComponent implements OnInit {
   ngOnInit(): void {
     this.datosPortfolio.getEdus().subscribe((data) => {
       this.educationList = data;
+    });
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach((rol: any) => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
     });
     this.editForm = this.fb.group({
       id: [0],

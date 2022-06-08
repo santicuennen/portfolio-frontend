@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Person } from 'src/app/models/Person';
+import { TokenService } from 'src/app/services/auth/token.service';
 import { PersonService } from 'src/app/services/person.service';
 
 @Component({
@@ -10,8 +11,12 @@ import { PersonService } from 'src/app/services/person.service';
   styleUrls: ['./about-me.component.css'],
 })
 export class AboutMeComponent implements OnInit {
+  roles: string[] | any;
+  isAdmin = false;
+
   constructor(
     private datosPortfolio: PersonService,
+    private tokenService: TokenService,
     private modalService: NgbModal,
     private fb: FormBuilder
   ) {}
@@ -20,6 +25,12 @@ export class AboutMeComponent implements OnInit {
   ngOnInit(): void {
     this.datosPortfolio.getPerson().subscribe((data) => {
       this.myPortfolio = data;
+    });
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach((rol: any) => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
     });
     this.editForm = this.fb.group({
       id: [0],

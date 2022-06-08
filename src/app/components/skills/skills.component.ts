@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Skills } from 'src/app/models/Skills';
+import { TokenService } from 'src/app/services/auth/token.service';
 import { SkillsService } from 'src/app/services/skills.service';
 
 @Component({
@@ -10,8 +11,13 @@ import { SkillsService } from 'src/app/services/skills.service';
   styleUrls: ['./skills.component.css'],
 })
 export class SkillsComponent implements OnInit {
+  roles: string[] | any;
+  isAdmin = false;
+  isLogged = false;
+
   constructor(
     private datosPortfolio: SkillsService,
+    private tokenService: TokenService,
     private modalService: NgbModal,
     private fb: FormBuilder
   ) {}
@@ -39,6 +45,12 @@ export class SkillsComponent implements OnInit {
         urlImg: [''],
         num: [0],
       });
+    });
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach((rol: string) => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
     });
   }
   openAdd(content: any) {

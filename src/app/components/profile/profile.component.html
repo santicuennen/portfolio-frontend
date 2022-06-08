@@ -1,17 +1,28 @@
 <div>
+  <input
+    type="file"
+    accept=".png, .jpg, .jpeg, .gif"
+    (change)="onCaptureBanner($event, picture)"
+    formControlName="picUrl"
+    id="banner-input"
+  />
+  <label *ngIf="isAdmin" for="banner-input" id="banner-edit"
+    ><i class="bi bi-pencil-fill"></i
+  ></label>
   <img
     class="img-fluid rounded mx-auto"
-    [src]="picture.urlBanner"
+    [src]="onloadBanner ? loading : picture.urlBanner"
     alt="banner"
+    id="banner"
   />
   <input
     type="file"
     accept=".png, .jpg, .jpeg, .gif"
-    (change)="onCapture($event, picture)"
+    (change)="onCaptureProfile($event, picture)"
     formControlName="picUrl"
     id="inputFile"
   />
-  <label for="inputFile" id="prof-edit"
+  <label *ngIf="isAdmin" for="inputFile" id="prof-edit"
     ><i class="bi bi-pencil-fill"></i
   ></label>
 </div>
@@ -20,7 +31,7 @@
     <img
       class="img-fluid"
       id="profileimg"
-      [src]="onload ? loading : picture.picUrl"
+      [src]="onloadProfile ? loading : picture.picUrl"
       alt="profile"
     />
     <h2 class="display-3 data" id="name">

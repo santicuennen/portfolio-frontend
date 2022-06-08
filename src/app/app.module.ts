@@ -18,6 +18,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NewUserFormComponent } from './components/new-user-form/new-user-form.component';
 import { ToastrModule } from 'ngx-toastr';
 import { interceptorProvider } from './interceptor/portfolio-intercerptor.service';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { interceptorProvider } from './interceptor/portfolio-intercerptor.servic
     ApLogoComponent,
     MediaLinksComponent,
     NewUserFormComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

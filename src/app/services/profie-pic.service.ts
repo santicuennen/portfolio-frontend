@@ -32,7 +32,7 @@ export class ProfiePicService {
     return this.http.get<ProfilePic>(`${this.url}/pictures/1`);
   }
   putPicture(data: FormGroup): Observable<any> {
-    return this.http.patch(
+    return this.http.put(
       `${this.url}/upload/picture/${data.value.id}`,
       data.value
     );

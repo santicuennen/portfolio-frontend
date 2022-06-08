@@ -26,3 +26,8 @@ button:hover {
 #button {
   z-index: 100;
 }
+#presentation {
+  z-index: 100;
+  color: #daa140;
+  text-align: center;
+}

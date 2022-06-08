@@ -2,7 +2,7 @@
   <div class="container">
     <h2 class="data title">Hard & Soft Skills</h2>
     <h1>
-      <a (click)="openAdd(content)">
+      <a *ngIf="isAdmin" (click)="openAdd(content)">
         <i
           class="bi bi-file-plus-fill icon-custom-add"
           id="icon-custom-add"
@@ -11,14 +11,14 @@
     </h1>
   </div>
   <div class="container-fluid" *ngFor="let skill of mySkills">
-    <div class="div-border">
+    <div class="div-border mb-5">
       <div class="bar">
         <span class="skill-title">{{ skill.title }}</span>
         <div class="skill-button">
-          <a (click)="onDelete(skill)"
+          <a *ngIf="isAdmin" (click)="onDelete(skill)"
             ><i class="bi bi-trash3 delete_btn"> </i
           ></a>
-          <a (click)="openEdit(contentEdit, skill)">
+          <a *ngIf="isAdmin" (click)="openEdit(contentEdit, skill)">
             <i class="bi bi-pencil-fill edit_btn"></i>
           </a>
         </div>

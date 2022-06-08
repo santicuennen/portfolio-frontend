@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, NgForm } from '@angular/forms';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Proyects } from 'src/app/models/Proyects';
+import { TokenService } from 'src/app/services/auth/token.service';
 import { ProyectsService } from 'src/app/services/proyects.service';
 
 @Component({
@@ -10,8 +11,11 @@ import { ProyectsService } from 'src/app/services/proyects.service';
   styleUrls: ['./proyects.component.css'],
 })
 export class ProyectsComponent implements OnInit {
+  roles: string[] | any;
+  isAdmin = false;
   constructor(
     private datosPortfolio: ProyectsService,
+    private tokenService: TokenService,
     private modalService: NgbModal,
     private fb: FormBuilder
   ) {}
@@ -22,6 +26,12 @@ export class ProyectsComponent implements OnInit {
   ngOnInit(): void {
     this.datosPortfolio.getProyects().subscribe((data) => {
       this.proyectsList = data;
+    });
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach((rol: any) => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
     });
     this.editForm = this.fb.group({
       id: [0],

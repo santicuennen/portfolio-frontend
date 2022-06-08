@@ -1,6 +1,12 @@
 <div class="body col">
   <div class="container-fluid col-xs-5 col-sm-12 col-md-12 col-lg-12">
     <app-ap-logo></app-ap-logo>
+    <h2 *ngIf="isLogged" class="pb-2 text-center" id="presentation">
+      Bienvenid@
+    </h2>
+    <h3 *ngIf="!isLogged" class="pb-2 text-center" id="presentation">
+      Para ver los datos tenés que iniciar sesión
+    </h3>
     <button routerLink="/login" id="button" class="ml-2" *ngIf="!isLogged">
       <i class="bi bi-box-arrow-right mr-2"></i>LOGIN
     </button>

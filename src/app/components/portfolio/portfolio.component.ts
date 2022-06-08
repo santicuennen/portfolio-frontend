@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TokenService } from 'src/app/services/auth/token.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -6,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./portfolio.component.css'],
 })
 export class PortfolioComponent implements OnInit {
-  constructor() {}
+  roles: string[] | any;
+  isAdmin = false;
+  constructor(private tokenService: TokenService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach((rol: any) => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
+  }
 }
