@@ -8,7 +8,7 @@ import { Person } from '../models/Person';
   providedIn: 'root',
 })
 export class PersonService {
-  public apiUrl = 'http://localhost:8080';
+  public apiUrl = 'http://localhost:8080/api';
   constructor(private http: HttpClient) {}
 
   getPerson(): Observable<Person> {
