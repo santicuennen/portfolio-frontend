@@ -8,7 +8,8 @@ import { Person } from '../models/Person';
   providedIn: 'root',
 })
 export class PersonService {
-  public apiUrl = 'https://portfolio-backend-110193.herokuapp.com';
+  public apiUrl = 'https://portfolio-110193.herokuapp.com';
+  // private apiUrl = 'http://localhost:8080';
   constructor(private http: HttpClient) {}
 
   getPerson(): Observable<Person> {

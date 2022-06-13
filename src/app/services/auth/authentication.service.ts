@@ -9,7 +9,8 @@ import { JwtDTO } from '../../models/auth/jwt-dto';
   providedIn: 'root',
 })
 export class AuthenticationService {
-  authURL = 'https://portfolio-backend-110193.herokuapp.com/auth/';
+  authURL = 'https://portfolio-110193.herokuapp.com/auth/';
+  // private authURL = 'http://localhost:8080/auth/';
 
   constructor(private httpClient: HttpClient) {}
 
