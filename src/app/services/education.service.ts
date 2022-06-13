@@ -8,7 +8,7 @@ import { Education } from '../models/Education';
   providedIn: 'root',
 })
 export class EducationService {
-  private url = 'http://localhost:8080/api';
+  private url = 'http://localhost:8080';
   editForm: any | FormGroup;
   education: any | Education;
 

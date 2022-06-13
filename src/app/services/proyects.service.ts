@@ -8,7 +8,7 @@ import { Proyects } from '../models/Proyects';
   providedIn: 'root',
 })
 export class ProyectsService {
-  private url = 'http://localhost:8080/api';
+  private url = 'http://localhost:8080';
   constructor(private http: HttpClient) {}
 
   getProyects(): Observable<Proyects[]> {

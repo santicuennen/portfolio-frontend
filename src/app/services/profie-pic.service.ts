@@ -14,7 +14,7 @@ firebase.initializeApp(environment.firebaseConfig);
 })
 export class ProfiePicService {
   storageRef = firebase.app().storage().ref();
-  private url = 'http://localhost:8080/api';
+  private url = 'http://localhost:8080';
   constructor(private http: HttpClient) {}
 
   async uploadPicture(name: string, img64: any) {
