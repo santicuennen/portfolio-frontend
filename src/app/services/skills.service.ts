@@ -8,7 +8,7 @@ import { Skills } from '../models/Skills';
   providedIn: 'root',
 })
 export class SkillsService {
-  private url = 'http://localhost:8080';
+  private url = 'https://portfolio-backend-110193.herokuapp.com';
   constructor(private http: HttpClient) {}
 
   getSkills(): Observable<Skills[]> {

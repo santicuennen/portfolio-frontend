@@ -14,7 +14,7 @@ firebase.initializeApp(environment.firebaseConfig);
 })
 export class ProfiePicService {
   storageRef = firebase.app().storage().ref();
-  private url = 'http://localhost:8080';
+  private url = 'https://portfolio-backend-110193.herokuapp.com';
   constructor(private http: HttpClient) {}
 
   async uploadPicture(name: string, img64: any) {
